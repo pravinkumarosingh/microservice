@@ -25,12 +25,11 @@ public class ProductService {
                 .build();
 
         productRepository.save(product);
-        log.info("Product {} created" , product.getId());
+        log.info("Product {} created" , product.getName());
     }
 
     public List<ProductResponse> getAllProducts() {
         List<Product> products = productRepository.findAll();
-
         return  products.stream().map(product -> mapToProductResponse(product)).toList();
     }
 
